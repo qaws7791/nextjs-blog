@@ -5,7 +5,7 @@ import utilStyles from "./utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 
 export default async function Home() {
-  const allPostsData = await getStaticProps();
+  const allPostsData = await getAllPostData();
   return (
     <>
       {" "}
@@ -34,7 +34,7 @@ export default async function Home() {
   );
 }
 
-export async function getStaticProps() {
+export async function getAllPostData() {
   const allPostsData = getSortedPostsData();
 
   return allPostsData;
