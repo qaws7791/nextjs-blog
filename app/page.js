@@ -1,41 +1,61 @@
-import Link from "next/link";
-import Date from "@/components/date";
-import Layout, { siteTitle } from "./layout";
-import utilStyles from "./utils.module.css";
-import { getSortedPostsData } from "../lib/posts";
+import Link from 'next/link'
+import {sanityClient} from '@/lib/sanity.server'
+import Image from 'next/image'
+import {urlForImage} from '@/lib/sanity'
 
 export default async function Home() {
-  const allPostsData = await getAllPostData();
+  const post = await getStaticData()
   return (
     <>
-      {" "}
-      <section className={utilStyles.headingMd}>
-        <p>made with beta version of app router.</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{" "}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+      <section>
+        <h2>Blog</h2>
+        <article>
+          <h3>{post.title}</h3>
+          <Link href={`/author/${post.author.slug.current}`} passHref>
+            <Image
+              src={urlForImage(post.author.image).height(100).width(100).url()}
+              alt={post.title}
+              width={100}
+              height={100}
+            />
+          </Link>
+          <p>By {post.author.name}</p>
+
+          <div>
+            <Image
+              src={urlForImage(post.mainImage).height(1000).width(2000).url()}
+              alt={post.title}
+              width={1000}
+              height={1000}
+              style={{height: '100%', width: '100%'}}
+            />
+          </div>
+        </article>
+        <Link href={'/posts'}>
+          <h2>All Posts →</h2>
+        </Link>
+        <Link href={'/authors'}>
+          <h2>All Users →</h2>
+        </Link>
       </section>
     </>
-  );
+  )
 }
 
-export async function getAllPostData() {
-  const allPostsData = getSortedPostsData();
+export async function getStaticData() {
+  const query = `
+  *[_type=="post"] | order(_updatedAt asc)[0] {
+    title,
+      mainImage,
+      slug,
+      author->{
+        name,
+        image,
+        slug
+      }
+  }
+  `
+  const recentlyPost = await sanityClient.fetch(query)
 
-  return allPostsData;
+  return recentlyPost
 }
