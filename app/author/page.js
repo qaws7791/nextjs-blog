@@ -11,7 +11,7 @@ export default async function AuthorsPage() {
       {authors.map((author) => (
         <li key={author.name}>
           <p>{author.name}</p>
-          <Link href={`/authors/${author.slug.current}`} passHref>
+          <Link href={`/author/${author.slug.current}`} passHref>
             <Image
               src={urlForImage(author.image).height(1000).width(2000).url()}
               alt={author.name}

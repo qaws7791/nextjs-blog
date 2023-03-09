@@ -34,7 +34,7 @@ export default async function Home() {
         <Link href={'/posts'}>
           <h2>All Posts →</h2>
         </Link>
-        <Link href={'/authors'}>
+        <Link href={'/author'}>
           <h2>All Users →</h2>
         </Link>
       </section>
