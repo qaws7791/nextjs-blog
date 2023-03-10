@@ -34,7 +34,7 @@ export async function getStaticData(slug) {
   const query = `
   *[_type == "author" && slug.current =="${slug}"][0]{
     ...,
-    "posts": *[_type == "post" && author._ref in *[_type=="author" && name == "Liam" ]._id ]
+    "posts": *[_type == "post" && author._ref in *[_type=="author" && slug.current == "${slug}" ]._id ]
   }
   `
 
