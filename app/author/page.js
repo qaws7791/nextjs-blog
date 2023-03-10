@@ -29,6 +29,5 @@ export default async function AuthorsPage() {
 
 export async function getStaticData() {
   const authors = await sanityClient.fetch(`*[_type=="author"]`)
-  console.log(authors)
   return authors
 }

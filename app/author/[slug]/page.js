@@ -39,7 +39,6 @@ export async function getStaticData(slug) {
   `
 
   const authorWithPosts = await sanityClient.fetch(query)
-  console.log(authorWithPosts)
   return authorWithPosts
 }
 

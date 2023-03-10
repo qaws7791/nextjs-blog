@@ -25,6 +25,5 @@ export default async function PostsPage() {
 
 export async function getStaticData() {
   const allPosts = await sanityClient.fetch(indexQuery)
-  console.log(allPosts)
   return allPosts
 }
