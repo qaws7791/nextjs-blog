@@ -1,11 +1,19 @@
 .header {
-  padding-top: 5.4rem;
+
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5.5rem;
+  background: #fff;
+  z-index: 10;
+
 }
 
 .header-container {
-  position: fixed;
-  top: 0;
+
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 5.4rem;
@@ -19,3 +27,17 @@
   color: red;
 }
 
+.header__menu {
+  display: flex;
+  list-style: none;
+  font-size: 1.6rem;
+}
+
+.header__menu li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.main {
+  padding-top: 5.5rem;
+  margin: 0 auto;
+}

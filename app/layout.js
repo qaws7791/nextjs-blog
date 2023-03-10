@@ -19,11 +19,27 @@ export default function RootLayout({children, home}) {
           <header className="header">
             <div className="header-container">
               <h1 className="header__title">
-                <a href="/">{name} blog</a>
+                <a href="/">{name}</a>
               </h1>
+              <div>
+                <ul className="header__menu">
+                  <li>
+                    <a>Menu</a>
+                  </li>
+                  <li>
+                    <a>Menu</a>
+                  </li>
+                  <li>
+                    <a>Menu</a>
+                  </li>
+                  <li>
+                    <a>Menu</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </header>
-          <main>{children}</main>
+          <main className="main">{children}</main>
           {!home && (
             <div>
               <Link href="/">← Back to home</Link>
