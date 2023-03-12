@@ -1,14 +1,14 @@
 import {sanityClient} from '@/lib/sanity.server'
 import PostPreview from '@/components/post-preview'
 
-export default async function Home() {
-  const posts = await getStaticData()
+export default async function PostsPage() {
+  const allPosts = await getStaticData()
   return (
-    <>
-      {posts.map((post) => (
+    <div>
+      {allPosts.map((post) => (
         <PostPreview post={post} key={post.title} />
       ))}
-    </>
+    </div>
   )
 }
 
@@ -26,7 +26,6 @@ export async function getStaticData() {
     }
   }
   `
-  const recentlyPost = await sanityClient.fetch(query)
-
-  return recentlyPost
+  const allPosts = await sanityClient.fetch(query)
+  return allPosts
 }

@@ -4,13 +4,14 @@ import Image from 'next/image'
 import {urlForImage} from '@/lib/sanity'
 import PostPreviewHeader from './post-preview-header'
 import PostPreviewContent from './post-preview-content'
+import './post-preview.css'
 
-const PostPreview = ({post}) => {
+const PostPreview = ({post, author}) => {
   return (
     <article key={post.title} className="post-preview">
       <PostPreviewHeader
         publishedAt={post.publishedAt}
-        author={post.author}
+        author={author ? author : post.author}
         title={post.title}
       />
       <PostPreviewContent

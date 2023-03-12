@@ -6,7 +6,7 @@ import {urlForImage} from '@/lib/sanity'
 const PostPreviewContent = ({title, slug, mainImage}) => {
   return (
     <div className="post-preview-content">
-      <Link href={`/posts/${slug.current}`}>
+      <Link href={`/post/${slug.current}`}>
         <h3 className="post-preview-title">{title}</h3>
         <Image
           src={urlForImage(mainImage).height(1000).width(1000).url()}

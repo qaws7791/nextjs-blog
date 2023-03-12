@@ -1,0 +1,12 @@
+.posts-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.link-btn {
+    font-size: 1.8rem;
+    color: #000;
+    background-color: rgb(235,235,235);
+    padding: 1em 2em;
+    border-radius: 40px;
+}

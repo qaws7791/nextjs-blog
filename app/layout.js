@@ -11,7 +11,7 @@ export const metadata = {
 const name = 'qaws7791'
 export const siteTitle = 'Next.js Sample Website using App Router'
 
-export default function RootLayout({children, home}) {
+export default function RootLayout({children}) {
   return (
     <html lang="en">
       <body>
@@ -24,10 +24,10 @@ export default function RootLayout({children, home}) {
               <div>
                 <ul className="header__menu">
                   <li>
-                    <a>Menu</a>
+                    <Link href={'/post'}>Post</Link>
                   </li>
                   <li>
-                    <a>Menu</a>
+                    <Link href={'/author'}>Author</Link>
                   </li>
                   <li>
                     <a>Menu</a>
@@ -39,12 +39,10 @@ export default function RootLayout({children, home}) {
               </div>
             </div>
           </header>
-          <main className="main">{children}</main>
-          {!home && (
-            <div>
-              <Link href="/">← Back to home</Link>
-            </div>
-          )}
+          <main className="main">
+            <section className="main-container">{children}</section>
+          </main>
+          <footer className="footer">this is footer</footer>
         </div>
       </body>
     </html>

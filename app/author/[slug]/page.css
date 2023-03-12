@@ -1,0 +1,28 @@
+.author {
+    margin-top: 5rem;
+}
+.author .author-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.author .author-header .author-image {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.author .author-header .author-name {
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+
+.author .author-header .author-desc {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.author .author-header .author-number {
+    font-size: 1.6rem;
+    color:#838383;
+}
