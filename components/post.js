@@ -5,12 +5,12 @@ import PostFooter from './post-footer'
 import './post.css'
 
 const Post = ({post}) => {
-  const {categories, publishedAt, mainImage, body, title, author} = post
+  const {category, publishedAt, mainImage, body, title, author} = post
   return (
     <article className="post">
       <PostHeader
         title={title}
-        categories={categories}
+        category={category}
         publishedAt={publishedAt}
         author={author}
       />

@@ -15,35 +15,30 @@ export default function RootLayout({children}) {
   return (
     <html lang="en">
       <body>
-        <div>
-          <header className="header">
-            <div className="header-container">
-              <h1 className="header__title">
-                <a href="/">{name}</a>
-              </h1>
-              <div>
-                <ul className="header__menu">
-                  <li>
-                    <Link href={'/post'}>Post</Link>
-                  </li>
-                  <li>
-                    <Link href={'/author'}>Author</Link>
-                  </li>
-                  <li>
-                    <a>Menu</a>
-                  </li>
-                  <li>
-                    <a>Menu</a>
-                  </li>
-                </ul>
-              </div>
+        <header className="header">
+          <div className="header-container">
+            <h1 className="header__title">
+              <a href="/">{name}</a>
+            </h1>
+            <div>
+              <ul className="header__menu">
+                <li>
+                  <Link href={'/post'}>Post</Link>
+                </li>
+                <li>
+                  <Link href={'/author'}>Author</Link>
+                </li>
+                <li>
+                  <Link href={'/category'}>Category</Link>
+                </li>
+              </ul>
             </div>
-          </header>
-          <main className="main">
-            <section className="main-container">{children}</section>
-          </main>
-          <footer className="footer">this is footer</footer>
-        </div>
+          </div>
+        </header>
+        <main className="main">
+          <section className="main-container">{children}</section>
+        </main>
+        <footer className="footer">©2023 qaws7791. this is footer</footer>
       </body>
     </html>
   )

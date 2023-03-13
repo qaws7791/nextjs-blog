@@ -1,0 +1,14 @@
+.category-header {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-name {
+    font-size: 4rem;
+}
+
+.category-number {
+    font-size: 2rem;
+}

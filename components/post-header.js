@@ -4,11 +4,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {urlForImage} from '@/lib/sanity'
 
-const PostHeader = ({title, categories, publishedAt, author}) => {
+const PostHeader = ({title, category, publishedAt, author}) => {
   return (
     <div className="post-header">
       <div className="post-header-info">
-        <p className="post-category">{categories.title}</p>
+        <p className="post-category">{category.title}</p>
         <div className="post-time">
           <Date dateString={publishedAt}></Date>
         </div>

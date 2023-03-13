@@ -19,7 +19,7 @@ export async function getPost(slug) {
       image,
     },
     body,
-    categories[0]->,
+    category->,
     mainImage,
     title,
   }
