@@ -3,6 +3,7 @@
 import {sanityClient} from '@/lib/sanity.server'
 import PostPreview from '@/components/post-preview'
 import {useState, useEffect} from 'react'
+import './page.css'
 
 export default function PostsPage() {
   // const allPosts = await getStaticData()
@@ -37,6 +38,7 @@ export default function PostsPage() {
         setLastId(result[result.length - 1]._id)
       } else {
         setLastId(null) // Reached the end
+        setNextPage(false)
       }
     } catch (e) {
       console.log('ERROR', e)
@@ -46,24 +48,30 @@ export default function PostsPage() {
   }
 
   useEffect(() => {
-    if (isFetching) fetchNextPage()
+    if (isFetching && hasNextPage) fetchNextPage()
   }, [isFetching])
 
   return (
-    <div>
+    <>
       {posts.map((post) => (
         <PostPreview post={post} key={post.title} />
       ))}
-      {lastId && (
-        <button
-          onClick={() => {
-            setFetching(true)
-          }}
-        >
-          more post
-        </button>
-      )}
-    </div>
+      <div className="load-more">
+        {' '}
+        {lastId ? (
+          <button
+            className="btn"
+            onClick={() => {
+              setFetching(true)
+            }}
+          >
+            LOAD MORE
+          </button>
+        ) : (
+          <p>❗ There are no more posts.</p>
+        )}
+      </div>
+    </>
   )
 }
 

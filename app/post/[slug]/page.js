@@ -1,5 +1,6 @@
 import {sanityClient} from '@/lib/sanity.server'
 import Post from '@/components/post'
+import {postQuery, postSlugsQuery} from '@/lib/queries'
 
 export const dynamicParams = false
 
@@ -10,22 +11,9 @@ export default async function PostPage({params}) {
 }
 
 export async function getPost(slug) {
-  const query = `
-    *[_type == "post" && slug.current =="${slug}"][0]{
-    publishedAt,
-    author-> {
-      name,
-      slug,
-      image,
-    },
-    body,
-    category->,
-    mainImage,
-    title,
-  }
-  `
-
-  const post = await sanityClient.fetch(query)
+  const post = await sanityClient.fetch(postQuery, {
+    slug: slug,
+  })
   return post
 }
 
@@ -35,13 +23,7 @@ export async function generateMetadata({params, searchParams}) {
 }
 
 export async function generateStaticParams() {
-  const query = `
-    *[_type=="post"] {
-        slug
-    }
-    `
-
-  const allPosts = await sanityClient.fetch(query)
+  const allPosts = await sanityClient.fetch(postSlugsQuery)
 
   const allPaths = allPosts.map((post) => {
     return {

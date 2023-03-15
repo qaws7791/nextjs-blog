@@ -1,0 +1,35 @@
+.author-item {
+    display: flex;
+    flex-direction: row;
+    padding: 3rem 0rem;
+}
+
+
+.author-preview-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    transition: transform 200ms ease-in-out ;
+}
+
+.author-preview-image:hover {
+    transform: scale(1.1);
+}
+
+.author-preview-content {
+    padding-left: 2rem;
+}
+
+.author-preview-name {
+    font-size: 3rem;
+}
+
+.author-preview-number {
+    font-size: 2rem;
+    color: #aaa;
+}
+
+.author-preview-desc {
+    font-size: 2rem;
+    font-weight: 400;
+}

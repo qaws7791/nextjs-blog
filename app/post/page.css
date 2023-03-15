@@ -1,0 +1,18 @@
+.load-more {
+    padding: 2rem;
+}
+.btn {
+    display: inline-block;
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    padding: 1.5rem 2.5rem;
+    border: 2px solid #0070f3;
+    background-color: #fff;
+    color: #0070f3;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.load-more p {
+    font-size: 2.4rem;
+}

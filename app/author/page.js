@@ -2,32 +2,23 @@ import {sanityClient} from '@/lib/sanity.server'
 import Image from 'next/image'
 import {urlForImage} from '@/lib/sanity'
 import Link from 'next/link'
+import './page.css'
+import {authorListQuery} from '@/lib/queries'
+import AuthorPreview from '@/components/author-preview'
 
 export default async function AuthorsPage() {
   const authors = await getStaticData()
 
   return (
-    <ul>
+    <ul className="author-list">
       {authors.map((author) => (
-        <li key={author.name}>
-          <p>{author.name}</p>
-          <Link href={`/author/${author.slug.current}`} passHref>
-            <Image
-              src={urlForImage(author.image).height(1000).width(2000).url()}
-              alt={author.name}
-              title={author.name}
-              width={1000}
-              height={1000}
-              style={{height: '100%', width: '100%'}}
-            />
-          </Link>
-        </li>
+        <AuthorPreview author={author} key={author.name} />
       ))}
     </ul>
   )
 }
 
 export async function getStaticData() {
-  const authors = await sanityClient.fetch(`*[_type=="author"]`)
+  const authors = await sanityClient.fetch(authorListQuery)
   return authors
 }
