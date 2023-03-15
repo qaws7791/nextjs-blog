@@ -1,5 +1,6 @@
 import {sanityClient} from '@/lib/sanity.server'
 import PostPreview from '@/components/post-preview'
+import {recentPostQuery} from '@/lib/queries'
 
 export default async function Home() {
   const posts = await getStaticData()
@@ -13,20 +14,7 @@ export default async function Home() {
 }
 
 export async function getStaticData() {
-  const query = `
-  *[_type=="post"] | order(_updatedAt asc)[0...5] {
-    title,
-    mainImage,
-    slug,
-    publishedAt,
-    author->{
-      name,
-      image,
-      slug
-    }
-  }
-  `
-  const recentlyPost = await sanityClient.fetch(query)
+  const recentlyPost = await sanityClient.fetch(recentPostQuery)
 
   return recentlyPost
 }
