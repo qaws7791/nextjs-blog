@@ -1,6 +1,4 @@
 import {sanityClient} from '@/lib/sanity.server'
-import Link from 'next/link'
-import './page.css'
 import {allCategoryQuery} from '@/lib/queries'
 import CategoryList from '@/components/category-list'
 

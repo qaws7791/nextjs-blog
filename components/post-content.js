@@ -1,17 +1,13 @@
 import React from 'react'
-import Date from './date'
-import Link from 'next/link'
-import Image from 'next/image'
 import {PortableText} from '@portabletext/react'
-import {urlForImage} from '@/lib/sanity'
-import PostHeader from './post-header'
+import ImageContainer from './Image'
 
 const PostContent = ({mainImage, title, body}) => {
   return (
     <div className="post-content">
       <div className="post-image">
-        <Image
-          src={urlForImage(mainImage).width(1000).url()}
+        <ImageContainer
+          image={mainImage}
           alt={title}
           width={1000}
           height={1000}

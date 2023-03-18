@@ -1,7 +1,4 @@
 import {sanityClient} from '@/lib/sanity.server'
-import Image from 'next/image'
-import {urlForImage} from '@/lib/sanity'
-import Link from 'next/link'
 import './page.css'
 import {authorListQuery} from '@/lib/queries'
 import AuthorPreview from '@/components/author-preview'

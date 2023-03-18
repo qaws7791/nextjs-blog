@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import {urlForImage} from '@/lib/sanity'
+import ImageContainer from './Image'
+import './author-header.css'
 
 const AuthorHeader = ({image, name, description, postLength}) => {
   return (
     <div className="author-header">
       <div className="author-image">
-        <Image
-          src={urlForImage(image).height(500).width(500).url()}
+        <ImageContainer
+          image={image}
           alt={name}
           title={name}
           width={140}

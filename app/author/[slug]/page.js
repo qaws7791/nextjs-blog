@@ -1,7 +1,5 @@
 export const dynamicParams = false
-import Image from 'next/image'
 import {sanityClient} from '@/lib/sanity.server'
-import {urlForImage} from '@/lib/sanity'
 import PostPreview from '@/components/post-preview'
 import './page.css'
 import AuthorHeader from '@/components/author-header'
@@ -20,11 +18,12 @@ export default async function AuthorPage({params}) {
           description={description}
           postLength={postLength}
         />
-      </div>
-      <div className="author-posts">
-        {posts.map((post) => (
-          <PostPreview post={post} author={author} key={post.title} />
-        ))}
+
+        <div className="author-posts">
+          {posts.map((post) => (
+            <PostPreview post={post} author={author} key={post.title} />
+          ))}
+        </div>
       </div>
     </>
   )

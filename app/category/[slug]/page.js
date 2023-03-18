@@ -1,6 +1,5 @@
 import {sanityClient} from '@/lib/sanity.server'
 import PostPreview from '@/components/post-preview'
-import './page.css'
 import {categoryPostsQuery, categorySlugsQuery} from '@/lib/queries'
 import CategoryHeader from '@/components/category-header'
 

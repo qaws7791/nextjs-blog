@@ -1,7 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import {urlForImage} from '@/lib/sanity'
 import PostPreviewHeader from './post-preview-header'
 import PostPreviewContent from './post-preview-content'
 import './post-preview.css'

@@ -1,8 +1,7 @@
 import React from 'react'
 import Date from './date'
 import Link from 'next/link'
-import Image from 'next/image'
-import {urlForImage} from '@/lib/sanity'
+import ImageContainer from './Image'
 
 const PostHeader = ({title, category, publishedAt, author}) => {
   return (
@@ -17,10 +16,11 @@ const PostHeader = ({title, category, publishedAt, author}) => {
       <h1 className="post-title">{title}</h1>
       <div className="post-author">
         <Link href={`/author/${author.slug.current}`} passHref>
-          <Image
+          <ImageContainer
             className="author-image"
-            src={urlForImage(author.image).height(500).width(500).url()}
+            image={author.image}
             alt={title}
+            title={title}
             width={50}
             height={50}
           />

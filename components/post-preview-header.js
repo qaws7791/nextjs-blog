@@ -1,18 +1,18 @@
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import Date from './date'
-import {urlForImage} from '@/lib/sanity'
+import ImageContainer from './Image'
 
 const PostPreviewHeader = ({publishedAt, author, title}) => {
   return (
     <div className="post-preview-header">
       <div className="post-preview-author">
         <Link href={`/author/${author.slug.current}`} passHref>
-          <Image
+          <ImageContainer
             className="author-image"
-            src={urlForImage(author.image).height(500).width(500).url()}
+            image={author.image}
             alt={title}
+            title={title}
             width={40}
             height={40}
           />

@@ -1,4 +1,5 @@
 import React from 'react'
+import './category-header.css'
 
 const CategoryHeader = ({title, postNumber}) => {
   return (

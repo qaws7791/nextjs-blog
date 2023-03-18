@@ -25,16 +25,25 @@
 
 .header__title {
   color: red;
+  font-size: 1.6rem;
 }
 
 .header__menu {
-  display: flex;
+  display: none;
   list-style: none;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .header__menu li:not(:last-child) {
   margin-right: 20px;
+}
+
+.header__btns {
+  list-style: none;
+}
+
+.header-open-btn {
+  cursor: pointer;  
 }
 
 .main {
@@ -46,7 +55,7 @@
 }
 
 .main-container {
-  max-width: 650px;
+  max-width: 450px;
   margin: 0 auto;
   padding: 0 16px;
   display: flex;
@@ -63,14 +72,130 @@
   transform: translateY(-100%);
 }
 
-@media (max-width: 1023px) {
+/* media  */
+
+.post-preview-title {
+  line-height: 1.25;
+}
+
+
+
+@media (min-width: 768px) {
+
+  .main-container {
+      max-width: 550px;
+  }
+}
+
+@media (min-width: 1200px) {
   .main-container {
       max-width: 600px;
   }
 }
 
-@media (max-width: 767px) {
-  .main-container {
-      max-width: 450px;
+@media (min-width: 500px) {
+  .header__menu{
+    display: flex;
   }
+  .header__btns {
+    display: none;
+  }
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 100;
+  transition:left 0.4s ease;
+}
+
+.nav-bar.open {
+  left: 0;
+}
+
+.nav-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.nav-bar .nav-close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  display: block;
+  overflow: hidden;
+  text-indent: -1000em;
+}
+
+
+.nav-close-btn::before, .nav-close-btn::after {
+  position: absolute;
+  top: 1.9rem;
+  left: 1.1rem;
+  width: 2rem;
+  height: 0.2rem;
+  background-color: rgb(68, 68, 68);
+  display: block;
+  content: "";
+  opacity: 0;
+  transition: transform 0.4s ease 0.3s, opacity 0.4s ease;
+}
+
+.nav-close-btn::before {
+  opacity: 1;
+    transform: rotate(45deg);
+}
+
+.nav-close-btn::after {
+  opacity: 1;
+    transform: rotate(-45deg);
+}
+
+.of-h {
+  overflow: hidden;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 3rem 1.1rem 3rem;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.nav-menu h2:first-child {
+ margin-top: 2rem;
+}
+
+.nav-menu h2{
+  margin-top: 4rem;
+  font-size: 1.6rem;
+  color: #999;
+}
+
+.nav-menu ul {
+  font-size: 2rem;
+  list-style: none;
+}
+
+.nav-menu ul li {
+  margin-top: 1rem;
+  padding: ;
+  font-weight: 700;
+}
+
+.nav-menu ul li a {
+  display: inline-block;
+  padding: 2rem;
 }
