@@ -1,10 +1,9 @@
 'use client'
 import './globals.css'
-import Image from 'next/image'
 import Link from 'next/link'
 import './layout.css'
 import {Hahmlet} from 'next/font/google'
-import {useEffect, useRef, useState} from 'react'
+import {useRef, useState} from 'react'
 
 const name = 'qaws7791'
 export const siteTitle = 'Next.js Sample Website using App Router'
@@ -29,7 +28,7 @@ export default function RootLayout({children}) {
   return (
     <html lang="en" className={hahmlet.className}>
       <head title="Blog"></head>
-      <body className={isOpen && 'of-h'}>
+      <body className={isOpen ? 'of-h' : undefined}>
         <header className="header">
           <div className="header-container">
             <h1 className="header__title">
@@ -87,7 +86,7 @@ export default function RootLayout({children}) {
                 </li>
               </ul>
             </nav>
-            <a href="#" class="nav-close-btn" onClick={handleClose}>
+            <a href="#" className="nav-close-btn" onClick={handleClose}>
               닫기
             </a>
           </div>

@@ -30,7 +30,7 @@ export default function PostsPage() {
       )
 
       if (!response.ok) throw new Error(`ERROR: ${response.status}`)
-      const {result} = await response.json()
+      const result = await response.json()
       setPosts(posts.concat(result))
 
       if (result.length > 0) {
