@@ -1,5 +1,6 @@
 .load-more {
     padding: 2rem;
+    text-align: center;
 }
 .btn {
     display: inline-block;
@@ -11,6 +12,12 @@
     color: #0070f3;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.btn:disabled {
+    border-color: #959595;
+    color: #959595;
+    cursor: initial;
 }
 
 .load-more p {
