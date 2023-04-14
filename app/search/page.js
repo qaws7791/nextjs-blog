@@ -110,7 +110,7 @@ export default function SearchPage() {
         <PostPreview post={post} key={post.title} />
       ))}
       <div className="load-more">
-        {hasNextPage && (
+        {hasNextPage && getQuery() && (
           <button
             className="btn"
             onClick={() => {
