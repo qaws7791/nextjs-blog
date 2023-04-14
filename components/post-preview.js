@@ -3,12 +3,12 @@ import PostPreviewHeader from './post-preview-header'
 import PostPreviewContent from './post-preview-content'
 import './post-preview.css'
 
-const PostPreview = ({post, author}) => {
+const PostPreview = ({post}) => {
   return (
     <article key={post.title} className="post-preview">
       <PostPreviewHeader
         publishedAt={post.publishedAt}
-        author={author ? author : post.author}
+        author={post.author}
         title={post.title}
       />
       <PostPreviewContent
