@@ -51,6 +51,8 @@ export default function PostsPage() {
     if (isFetching && hasNextPage) fetchNextPage()
   }, [isFetching])
 
+  if (isFetching && posts.length < 1) return <p>loading</p>
+
   return (
     <>
       {posts.map((post) => (
@@ -64,11 +66,12 @@ export default function PostsPage() {
             onClick={() => {
               setFetching(true)
             }}
+            disabled={isFetching}
           >
-            LOAD MORE
+            {isFetching ? 'Loading...' : 'LOAD MORE'}
           </button>
         ) : (
-          <p>❗ There are no more posts.</p>
+          <p>no more posts.</p>
         )}
       </div>
     </>
