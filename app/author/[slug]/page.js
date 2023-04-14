@@ -20,9 +20,10 @@ export default async function AuthorPage({params}) {
         />
 
         <div className="author-posts">
-          {posts.map((post) => (
-            <PostPreview post={post} author={author} key={post.title} />
-          ))}
+          {posts.map((post) => {
+            post.author = author
+            return <PostPreview post={post} key={post.title} />
+          })}
         </div>
       </div>
     </>
