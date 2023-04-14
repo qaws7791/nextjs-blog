@@ -4,7 +4,6 @@
 import PostPreview from '@/components/post-preview'
 import './page.css'
 import useSWRInfinite from 'swr/infinite'
-import {useEffect} from 'react'
 import Spinner from '@/components/spinner'
 
 const PAGE_SIZE = 6
@@ -26,7 +25,6 @@ const fetchNextPage = async (url) => {
 
   if (!res.ok) {
     const error = new Error('An error occurred while fetching the data.')
-    // 에러 객체에 부가 정보를 추가합니다.
     error.info = await res.json()
     error.status = res.status
     throw error
@@ -40,7 +38,7 @@ export default function PostsPage() {
     useSWRInfinite(getKey, fetchNextPage)
 
   if (error) return <div>failed to load</div>
-  if (isLoading) return <div>loading...</div>
+  if (isLoading) return <Spinner />
 
   const isReachingEnd = data && data[data.length - 1].length < PAGE_SIZE
 
@@ -49,7 +47,7 @@ export default function PostsPage() {
       {data.map((posts) => {
         return posts.map((post) => <PostPreview post={post} key={post.title} />)
       })}
-      {isValidating ? <Spinner /> : 'not Loading'}
+      {isValidating && <Spinner />}
       <div className="load-more">
         {isReachingEnd ? (
           'NO MORE CONTENT'
