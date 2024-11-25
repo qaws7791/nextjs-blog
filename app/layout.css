@@ -52,6 +52,9 @@
   height: auto;
   min-height: 100%;
   padding-bottom: 5rem;
+  display: flex;
+  flex: auto;
+  max-width: 1200px;
 }
 
 .main-container {
@@ -192,11 +195,37 @@
 
 .nav-menu ul li {
   margin-top: 1rem;
-  padding: ;
   font-weight: 700;
 }
 
 .nav-menu ul li a {
   display: inline-block;
   padding: 2rem;
+}
+
+.sidebar-left {
+  width: 180px;
+  border-right: 1px solid #333;
+}
+
+
+.sidebar-right {
+  display: none;
+  width: 250px;
+  border-left: 1px solid #333;
+}
+
+
+@media screen and (max-width: 550px) {
+  .sidebar-left {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 640px) {
+  .sidebar-right {
+    display: initial;
+  }
+
 }
