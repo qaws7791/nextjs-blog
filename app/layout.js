@@ -52,7 +52,6 @@ export default function RootLayout({children}) {
               </ul>
               <ul className="header__btns">
                 <li className="header-open-btn" onClick={handleOpen}>
-                  {' '}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -93,8 +92,9 @@ export default function RootLayout({children}) {
         </div>
         <main className="main">
           <section className="main-container">{children}</section>
+          <section className="sidebar-right">Right</section>
         </main>
-        <footer className="footer">©2023 qaws7791. this is footer</footer>
+        <footer className="footer">©2023 qaws7791</footer>
       </body>
     </html>
   )
